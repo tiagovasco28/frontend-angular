@@ -1,0 +1,93 @@
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+  background-color: #6c4ffb;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #5939f2;
+}
+
+.text-primary {
+  color: #6c4ffb !important;
+}
+
+.navbar-brand i {
+  font-size: 1.4rem;
+}
+
+.list-unstyled li i {
+  width: 28px;
+  text-align: center;
+}
+
+.animate-fade {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 991px) {
+  .card.animate-fade {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    border: 1px solid #dee2e6;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .card {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .fs-5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  footer .d-flex.flex-wrap a {
+    display: block;
+    margin: 0.3rem 0;
+  }
+}

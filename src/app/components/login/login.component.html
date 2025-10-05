@@ -1,0 +1,89 @@
+<div class="container-fluid min-vh-100 d-flex flex-column justify-content-between bg-light">
+
+  <!-- Hero Section -->
+  <div class="container flex-grow-1 py-5">
+    <div class="row align-items-center justify-content-center" style="min-height: 100%;">
+      
+      <!-- Left Content (oculto en móviles) -->
+      <div class="col-12 col-lg-6 mb-5 mb-lg-0 text-center text-lg-start d-none d-lg-block">
+        <h1 class="fw-bold display-5 mb-3">Welcome to Logify</h1>
+        <p class="text-secondary fs-5 mb-4">
+          Experience authentication reimagined. Clean, elegant, and effortlessly secure.
+        </p>
+
+        <ul class="list-unstyled text-start mx-auto mx-lg-0" style="max-width: 400px;">
+          <li class="d-flex align-items-center mb-3">
+            <i class="fa-solid fa-circle-check text-primary fs-4 me-3"></i>
+            <span>Minimalist design with maximum impact</span>
+          </li>
+          <li class="d-flex align-items-center mb-3">
+            <i class="fas fa-edit text-primary fs-4 me-3"></i>
+            <span>Secure authentication you can trust</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <i class="fa-solid fa-wand-magic-sparkles text-primary fs-4 me-3"></i>
+            <span>Smooth animations and transitions</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Login Form -->
+      <div class="col-12 col-lg-5 offset-lg-1 order-1 order-lg-2">
+        <div class="card shadow-lg border-0 p-4 animate-fade login-card mx-auto">
+          <h3 class="fw-bold mb-2 text-center">Sign In</h3>
+          <p class="text-muted text-center mb-4">Enter your credentials to continue</p>
+
+          <!-- Formulario Angular -->
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            
+            <!-- Username -->
+            <div class="mb-3">
+              <label for="username" class="form-label fw-semibold">Username</label>
+              <input
+                type="text"
+                id="username"
+                class="form-control"
+                formControlName="username"
+                placeholder="Enter your username"
+                [ngClass]="{'is-invalid': submitted && f['username'].errors}"
+              />
+              <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                <div *ngIf="f['username'].errors['required']">Username is required</div>
+                <div *ngIf="f['username'].errors['minlength']">Minimum 3 characters</div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+              <label for="password" class="form-label fw-semibold">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter your password"
+                [ngClass]="{'is-invalid': submitted && f['password'].errors}"
+              />
+              <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Password is required</div>
+                <div *ngIf="f['password'].errors['minlength']">Minimum 6 characters</div>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
+              <i class="fa-solid fa-right-to-bracket me-2"></i> Sign In
+            </button>
+
+            <div class="text-center mt-3">
+              <small class="text-muted">
+                Forgot your password?
+                <a href="#" class="text-primary text-decoration-none">Reset it</a>
+              </small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
