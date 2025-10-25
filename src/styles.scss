@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+//snackbar styles
+.snackbar-neutro {
+  background: #424242;
+  color: #fff;
+}
+
+.snackbar-exito {
+  background: #4caf50;
+  color: #fff;
+  font-weight: 500;
+}
+
+.snackbar-error {
+  background: #f44336;
+  color: #fff;
+  font-weight: 500;
+
+}
+
+.snackbar-aviso {
+  background: #ff9800;
+  color: #fff;
+  font-weight: 500;
+}

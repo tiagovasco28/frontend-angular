@@ -1,12 +1,13 @@
-<div class="container-fluid min-vh-100 d-flex flex-column justify-content-between bg-light">
 
+<div class="d-flex flex-column min-vh-100">
+<app-navbar></app-navbar>
   <!-- Hero Section -->
   <div class="container flex-grow-1 py-5">
     <div class="row align-items-center justify-content-center" style="min-height: 100%;">
       
       <!-- Left Content (oculto en móviles) -->
       <div class="col-12 col-lg-6 mb-5 mb-lg-0 text-center text-lg-start d-none d-lg-block">
-        <h1 class="fw-bold display-5 mb-3">Welcome to Logify</h1>
+        <h1 class="fw-bold display-5 mb-3">Welcome to Hype</h1>
         <p class="text-secondary fs-5 mb-4">
           Experience authentication reimagined. Clean, elegant, and effortlessly secure.
         </p>
@@ -34,22 +35,22 @@
           <p class="text-muted text-center mb-4">Enter your credentials to continue</p>
 
           <!-- Formulario Angular -->
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
             
-            <!-- Username -->
+            <!-- Email -->
             <div class="mb-3">
-              <label for="username" class="form-label fw-semibold">Username</label>
+              <label for="email" class="form-label fw-semibold">Email</label>
               <input
                 type="text"
-                id="username"
+                id="email"
                 class="form-control"
-                formControlName="username"
-                placeholder="Enter your username"
-                [ngClass]="{'is-invalid': submitted && f['username'].errors}"
+                formControlName="email"
+                placeholder="Enter your email"
+                [ngClass]="{'is-invalid': submitted && f['email'].errors}"
               />
-              <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-                <div *ngIf="f['username'].errors['required']">Username is required</div>
-                <div *ngIf="f['username'].errors['minlength']">Minimum 3 characters</div>
+              <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">email is required</div>
+                <div *ngIf="f['email'].errors['minlength']">Minimum 3 characters</div>
               </div>
             </div>
 
@@ -71,14 +72,19 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
+            <button  type="submit" class="btn w-100 py-2 btn-primary fw-semibold">
               <i class="fa-solid fa-right-to-bracket me-2"></i> Sign In
             </button>
 
             <div class="text-center mt-3">
               <small class="text-muted">
                 Forgot your password?
-                <a href="#" class="text-primary text-decoration-none">Reset it</a>
+                <a href="#" class="text-primary text-decoration-none" routerLink="/recover-password">Reset it</a>
+              </small>
+              <br />
+              <small class="text-muted">
+                Don't have an account?
+                <a href="#" class="text-primary text-decoration-none" routerLink="/register">Sign up</a>
               </small>
             </div>
           </form>

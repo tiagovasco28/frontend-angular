@@ -1,0 +1,50 @@
+<div class="container mt-4">
+    <app-navbar></app-navbar>
+  <div class="card shadow p-4">
+    <h4 class="mb-3 text-center">Registro de Usuario</h4>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="ejemplo@correo.com" />
+        <div *ngIf="submitted && userForm.controls['email'].errors" class="text-danger">
+          <small *ngIf="userForm.controls['email'].errors['required']">El email es obligatorio.</small>
+          <small *ngIf="userForm.controls['email'].errors['email']">Formato de email inválido.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="********" />
+        <div *ngIf="submitted && userForm.controls['password'].errors" class="text-danger">
+          <small *ngIf="userForm.controls['password'].errors['required']">La contraseña es obligatoria.</small>
+          <small *ngIf="userForm.controls['password'].errors['minlength']">Mínimo 6 caracteres.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Tu nombre completo" />
+        <div *ngIf="submitted && userForm.controls['name'].errors" class="text-danger">
+          <small>El nombre es obligatorio.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" formControlName="birthDate" />
+        <div *ngIf="submitted && userForm.controls['birthDate'].errors" class="text-danger">
+          <small>La fecha de nacimiento es obligatoria.</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">URL de Imagen (opcional)</label>
+        <input type="text" class="form-control" formControlName="imageUrl" placeholder="https://..." />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Registrar</button>
+    </form>
+  </div>
+</div>
+

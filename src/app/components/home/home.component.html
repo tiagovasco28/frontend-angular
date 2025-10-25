@@ -1,4 +1,106 @@
-<app-navbar></app-navbar>
-<h1>Home</h1>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<!-- home.component.html -->
+
+<div class="container-fluid">
+  <!-- Navbar -->
+ <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Hype</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Perfil</a>
+    </li>
+
+     <li class="nav-item" (click)="logout()" style="cursor: pointer;">
+      <a class="nav-link" >Logout</a>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+
+  <div class="row">
+    <!-- Sidebar izquierdo: Perfil -->
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <!-- <img [src]="user?.imageUrl" class="card-img-top" alt="Foto de portada"> -->
+        <div class="card-body text-center">
+          <img [src]="user?.imageUrl" class="mb-2" style="min-width: none; max-width: 100%; min-height: max-content; max-height: 300px;" alt="Avatar">
+          <h5 class="card-title">{{ user?.email }}</h5>
+          <p class="card-text">My bio.</p>
+          <ul class="list-group list-group-flush text-center">
+            <li> Status: Online</li>
+            <li> Gender: Male</li>
+            <li> Age: 29</li>
+            <li> Location: Earth</li>
+          </ul>
+              <div class="card-body text-center">
+      <button class="btn btn-primary" style="width:150px; margin:2px">profile</button>
+      <br>
+      <button class="btn btn-primary" style="width:150px; margin:2px">scrapbook</button>
+      <br>
+      <button class="btn btn-primary" style="width:150px; margin:2px">photos</button>
+    </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+    <!-- Centro: publicaciones -->
+    <div class="col-md-6 mb-4">
+      <!-- Crear publicación -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <textarea class="form-control mb-2" rows="3" placeholder="¿Qué estás pensando?"></textarea>
+          <button class="btn btn-primary float-end">Publicar</button>
+        </div>
+      </div>
+
+      <!-- Lista de publicaciones -->
+      <div *ngFor="let post of posts" class="card mb-3">
+        <div class="card-body">
+          <h6 class="card-title">{{ post.user }}</h6>
+          <p class="card-text">{{ post.content }}</p>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-sm btn-outline-primary">Me gusta</button>
+            <button class="btn btn-sm btn-outline-secondary">Comentar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar derecho: sugerencias -->
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <div class="card-header">
+          Sugerencias
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let user of suggestedUsers">
+            {{ user.name }}
+            <button class="btn btn-sm btn-primary float-end">Agregar</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
